@@ -13,7 +13,7 @@
     text-align: center;
 }
 .navigation__button__icon {
-    fill: var(--primary-text);
+    color: var(--primary-text);
 }
 .navigation__button__label {
     text-transform: uppercase;
