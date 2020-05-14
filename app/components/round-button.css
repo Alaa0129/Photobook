@@ -1,0 +1,30 @@
+.round-button {
+  width: calc(7 * var(--unit));
+  height: calc(7 * var(--unit));
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background: var(--secondary-background);
+  color: var(--secondary-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;	border: none;
+
+}
+
+.round-button:hover {
+  box-shadow: var(--shadow-hover);
+  background: var(--secondary-background-hover);
+}
+
+.round-button:active {
+    box-shadow: var(--shadow-active);
+}
+
+.round-button:focus:not(:hover):not(:active) {
+    box-shadow: var(--shadow-focus);
+  }
+  
+  
+    

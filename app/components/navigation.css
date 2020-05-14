@@ -1,0 +1,21 @@
+.navigation {
+    height: calc(7 * var(--unit));
+    min-width: calc(64 * var(--unit));
+    background-color: var(--primary-background);
+    
+    
+    display: flex;
+}
+
+.navigation__button {
+    background-color: transparent;
+    color: inherit;
+    text-align: center;
+}
+.navigation__button__icon {
+    fill: var(--primary-text);
+}
+.navigation__button__label {
+    text-transform: uppercase;
+    color: var(--primary-text);
+}
