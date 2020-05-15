@@ -5,9 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Min Fotobog</title>
     <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/nimbus-sans-l" type="text/css">
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/carlito" type="text/css">
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/waltograph" type="text/css">
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="https://fontlibrary.org/face/nimbus-sans-l"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="https://fontlibrary.org/face/carlito"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="https://fontlibrary.org/face/waltograph"
+      type="text/css"
+    />
 
     <script defer type="module" src="index.js"></script>
   </head>
@@ -24,34 +39,52 @@
 
     <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
 
-    <header>
-      <!-- Help button -->
-      <button class="round-button help-button">
-        <img src="assets/icons/primary/help.svg" class="round__icon" />
-      </button>
-    </header>
-
-    <main class="main"></main>
+    <!-- Help button -->
+    <button class="round-button help-button">
+      <img src="assets/icons/primary/help.svg" class="round__icon" />
+    </button>
+    <main class="main" id="main">
+      <div class="book">
+        <div class="book__page">
+          <label for="FIX_THIS_ID_OR_YOURE_FIRED" class="book__add-media">
+            <input type="file" id="FIX_THIS_ID_OR_YOURE_FIRED" />
+          </label>
+        </div>
+      </div>
+      <nav class="pagination">
+        <div class="pagination__inner">
+          <button class="round-button round-button--small">
+            <img src="assets/icons/primary/chevron-left.svg" />
+          </button>
+          <span class="pagination__current">Side 1 / 2</span>
+          <button class="round-button round-button--small secondary">
+            <img src="assets/icons/primary/chevron-right.svg" />
+          </button>
+        </div>
+      </nav>
+    </main>
     <dialog id="theme-dialog">
       <h2>Vælg tema</h2>
     </dialog>
-    <footer>
+    <footer class="footer">
       <!-- Bottom navigation -->
       <nav class="navigation">
-        <button class="navigation__button">
-          <img
-            src="assets/icons/primary/arrange-send-to-back.svg"
-            class="navigation__button__icon"
-          />
-          <span class="navigation__button__label">Sidelayout</span>
-        </button>
-        <button class="navigation__button" id="theme-button">
-          <img
-            src="assets/icons/primary/brush.svg"
-            class="navigation__Fbutton__icon"
-          />
-          <span class="navigation__button__label">Tema og farver</span>
-        </button>
+        <div class="navigation">
+          <button class="navigation__button">
+            <img
+              src="assets/icons/primary/arrange-send-to-back.svg"
+              class="navigation__button__icon"
+            />
+            <span class="navigation__button__label">Sidelayout</span>
+          </button>
+          <button class="navigation__button" id="theme-button">
+            <img
+              src="assets/icons/primary/brush.svg"
+              class="navigation__Fbutton__icon"
+            />
+            <span class="navigation__button__label">Tema og farver</span>
+          </button>
+        </div>
       </nav>
     </footer>
 

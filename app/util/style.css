@@ -5,6 +5,12 @@
 
 html, body {
     height: 100%;
+
+}
+
+body {
+    display: flex;
+    /* flex-grow: 1; */
 }
 
 body {
@@ -16,7 +22,7 @@ body {
 
 /* Header */
 .header {
-    
+
 }
 .help-button {
     position: fixed;
@@ -29,5 +35,12 @@ body {
     flex-grow: 1;
 }
 
-
 /* Footer */
+.footer {
+    position: sticky;
+    bottom: 0;
+}
+
+.book {
+    flex-grow: 1;
+}

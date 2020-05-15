@@ -5,12 +5,15 @@
 
 .navigation {
     height: calc(7 * var(--unit));
-    min-width: calc(64 * var(--unit));
     background-color: var(--primary-background);
     box-shadow: var(--shadow);
     
     display: flex;
     justify-content: space-evenly
+}
+
+.navigation__inner {
+    max-width: calc(64 * var(--unit));
 }
 
 .navigation__button {
@@ -24,8 +27,8 @@
     align-items: center;
     justify-content: space-evenly;
     cursor: pointer;
-    
 }
+
 a.navigation__button {
     text-decoration: none;
 }
@@ -33,6 +36,5 @@ a.navigation__button {
     color: var(--primary-text);
 }
 .navigation__button__label {
-    
     color: var(--primary-text);
 }
