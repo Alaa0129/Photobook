@@ -4,11 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./../index.css" />
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
     <style>
       /* These styles are only meant for the storybook */
+      header {
+          padding: calc(8 * var(--unit));
+          background-color: rgb(45, 45, 158);
+          color: white;
+      }
       section {
         padding: calc(8 * var(--unit));
       }
@@ -19,7 +24,9 @@
       }
     </style>
 
-    <h1>Storybook</h1>
+    <header>
+        <h1>Storybook</h1>
+    </header>
 
     <section>
       <h2>Typography</h2>
@@ -39,23 +46,46 @@
       <!-- BEGIN COMPONENT -->
       <nav class="navigation">
         <button class="navigation__button">
-          <img src="./../shared/icons/white/arrange-send-to-back.svg" class="navigation__button__icon">
+          <img src="shared/icons/primary/arrange-send-to-back.svg" class="navigation__button__icon">
           <span class="navigation__button__label">Hello</span>
         </button>
         <button class="navigation__button">
           <img
-            src="./../shared/icons/white/brush.svg"
+            src="shared/icons/primary/brush.svg"
             class="navigation__Fbutton__icon"
           />
           <span class="navigation__button__label">World</span>
         </button>
         <button class="navigation__button">
           <img
-            src="./../shared/icons/white/image-multiple.svg"
+            src="shared/icons/primary/image-multiple.svg"
             class="navigation__button__icon"
           />
           <span class="navigation__button__label">Yay</span>
         </button>
+      </nav>
+
+      <br />
+      
+      <nav class="navigation">
+        <a href="#" class="navigation__button">
+          <img src="shared/icons/primary/arrange-send-to-back.svg" class="navigation__button__icon">
+          <span class="navigation__button__label">Hello</span>
+        </a>
+        <a href="#" class="navigation__button">
+          <img
+            src="shared/icons/primary/brush.svg"
+            class="navigation__Fbutton__icon"
+          />
+          <span class="navigation__button__label">World</span>
+        </a>
+        <a href="#" class="navigation__button">
+          <img
+            src="shared/icons/primary/image-multiple.svg"
+            class="navigation__button__icon"
+          />
+          <span class="navigation__button__label">Yay</span>
+        </a>
       </nav>
       <!-- END COMPONENT -->
     </section> 
@@ -63,7 +93,7 @@
       <h2 id="round-button">Round button</h2>
       <!-- BEGIN COMPONENT -->
       <button class="round-button">
-        <img src="./../shared/icons/black/help.svg" class="round__icon" />
+        <img src="shared/icons/primary/help.svg" class="round__icon" />
       </button>
       <!-- END COMPONENT -->
     </section>
