@@ -2,20 +2,32 @@
     height: calc(7 * var(--unit));
     min-width: calc(64 * var(--unit));
     background-color: var(--primary-background);
-    
+    box-shadow: var(--shadow);
     
     display: flex;
+    justify-content: space-evenly
 }
 
 .navigation__button {
+    font-size: 1rem;
     background-color: transparent;
     color: inherit;
     text-align: center;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    
+}
+a.navigation__button {
+    text-decoration: none;
 }
 .navigation__button__icon {
     color: var(--primary-text);
 }
 .navigation__button__label {
-    text-transform: uppercase;
+    
     color: var(--primary-text);
 }
