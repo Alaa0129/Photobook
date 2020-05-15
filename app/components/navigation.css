@@ -13,6 +13,9 @@
 }
 
 .navigation__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     max-width: calc(64 * var(--unit));
 }
 

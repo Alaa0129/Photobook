@@ -1,0 +1,18 @@
+.theme-overlay {
+    width: 200px;
+    height: 200px;
+}
+
+.theme-overlay-header__title {
+    padding-right: calc(2*var(--unit));
+}
+
+.theme-overlay__header {
+    display: flex;
+    padding: 5px;
+    align-items: center;
+}
+
+.theme-span-overlay {
+    font-size: x-large;
+}
