@@ -1,23 +1,59 @@
 import theme from './modules/theme.mjs'
 import storage from './modules/storage.mjs'
 import Pages from './modules/pages.mjs'
-
-const pages = Pages(storage)
-
+import Layout from './modules/layout.mjs'
 
 theme.init();
 
-console.log(storage.getState())
-console.log(storage.getPages(1))
+/** WIP */
+const pages = Pages(storage)
 
-/**
- * PopUp(Slide up)
- */
-// const exampleBtn = document.getElementById("example-btn");
+// Create default layout
+const main = document.querySelector('.main')
 
-// exampleBtn.addEventListener("click", toggleShow);
+const layout = Layout()
 
-// function toggleShow() {
-//   this.classList.toggle("show");
-// }
+main.appendChild(
+
+  layout.createElement('#layout-one', {
+    title: 'Title',
+    author: 'Raisa'
+  })
+
+)
+
+// Event Delegator
+main.addEventListener('change', e => {
+  if (e.target && e.target.matches('.file-plane')) fileUpload(e)
+})
+
+function fileUpload(ev) {
+  let image = ev.target.parentElement.querySelector('.img')
+
+  let reader = new FileReader()
+
+  reader.onload = () => {
+    image.src = reader.result
+  }
+
+  reader.readAsDataURL(ev.target.files[0])
+}
+
+// Paging
+const prevPageBtn = document.querySelector('.prev')
+const nextPageBtn = document.querySelector('.next')
+
+let currentPage = 0
+
+prevPageBtn.addEventListener('click', e => {
+  currentPage--
+
+  pages.getPage(currentPage)
+})
+
+nextPageBtn.addEventListener('click', e => {
+  currentPage++
+
+  pages.getPage(currentPage)
+})
 
