@@ -16,3 +16,7 @@
     padding: var(--unit);
     line-height: 100%;
 }
+
+.pagination__inner {
+    display: flex;
+}
