@@ -1,3 +1,8 @@
+/**
+ * App style
+ * Author: Jonas Glerup Røssum
+ */
+
 html, body {
     height: 100%;
 }
@@ -11,7 +16,7 @@ body {
 
 /* Header */
 .header {
-
+    
 }
 .help-button {
     position: fixed;

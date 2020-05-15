@@ -5,35 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Min Fotobog</title>
     <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/nimbus-sans-l" type="text/css">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/carlito" type="text/css">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/waltograph" type="text/css">
 
-    <script defer src="index.js"></script>
+    <script defer type="module" src="index.js"></script>
   </head>
   <body>
+
+    <button id="exampleButton"></button>
+
     <!-- THIS IS TEMPORARY -->
     <a href="components.html">Storybook</a>
+    <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+
+
+    <!-- THIS IS TESTBUTTONS -->
+    <!-- ...RIGHT NOW I'M SOMEONE ELSE -->
+    <button class="prev">prev</button>
+    <button class="next">next</button>
     <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
 
     <header>
       <!-- Help button -->
       <button class="round-button help-button">
-        <img src="shared/icons/primary/help.svg" class="round__icon" />
+        <img src="assets/icons/primary/help.svg" class="round__icon" />
       </button>
     </header>
 
     <main class="main"></main>
+    <dialog id="theme-dialog">
+      <h2>Vælg tema</h2>
+    </dialog>
     <footer>
       <!-- Bottom navigation -->
       <nav class="navigation">
         <button class="navigation__button">
           <img
-            src="shared/icons/primary/arrange-send-to-back.svg"
+            src="assets/icons/primary/arrange-send-to-back.svg"
             class="navigation__button__icon"
           />
           <span class="navigation__button__label">Sidelayout</span>
         </button>
-        <button class="navigation__button">
+        <button class="navigation__button" id="theme-button">
           <img
-            src="shared/icons/primary/brush.svg"
+            src="assets/icons/primary/brush.svg"
             class="navigation__Fbutton__icon"
           />
           <span class="navigation__button__label">Tema og farver</span>

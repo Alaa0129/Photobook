@@ -1,0 +1,14 @@
+/**
+ * Author: Jonas Glerup Røssum
+ */
+
+.book {}
+
+.book__page {
+    background-color: var(--secondary-background);
+}
+
+.book__media {
+    max-width: 100%;
+    height: auto;
+}

@@ -1,3 +1,5 @@
+
+<!-- Author: Jonas Glerup Røssum -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,6 +33,7 @@
     <section>
       <h2 id="typography">Typography</h2>
       <!-- BEGIN COMPONENT -->
+      <!-- Author: Jonas Glerup Røssum -->
       <h1>Heading 1</h1>
       <h2>Heading 2</h2>
       <h3>Heading 3</h3>
@@ -44,21 +47,22 @@
     <section>
       <h2 id="navigation">Bottom Navigation</h2>
       <!-- BEGIN COMPONENT -->
+      <!-- Author: Jonas Glerup Røssum -->
       <nav class="navigation">
         <button class="navigation__button">
-          <img src="shared/icons/primary/arrange-send-to-back.svg" class="navigation__button__icon">
+          <img src="assets/icons/primary/arrange-send-to-back.svg" class="navigation__button__icon">
           <span class="navigation__button__label">Hello</span>
         </button>
         <button class="navigation__button">
           <img
-            src="shared/icons/primary/brush.svg"
+            src="assets/icons/primary/brush.svg"
             class="navigation__Fbutton__icon"
           />
           <span class="navigation__button__label">World</span>
         </button>
         <button class="navigation__button">
           <img
-            src="shared/icons/primary/image-multiple.svg"
+            src="assets/icons/primary/image-multiple.svg"
             class="navigation__button__icon"
           />
           <span class="navigation__button__label">Yay</span>
@@ -69,19 +73,19 @@
       
       <nav class="navigation">
         <a href="#" class="navigation__button">
-          <img src="shared/icons/primary/arrange-send-to-back.svg" class="navigation__button__icon">
+          <img src="assets/icons/primary/arrange-send-to-back.svg" class="navigation__button__icon">
           <span class="navigation__button__label">Hello</span>
         </a>
         <a href="#" class="navigation__button">
           <img
-            src="shared/icons/primary/brush.svg"
+            src="assets/icons/primary/brush.svg"
             class="navigation__Fbutton__icon"
           />
           <span class="navigation__button__label">World</span>
         </a>
         <a href="#" class="navigation__button">
           <img
-            src="shared/icons/primary/image-multiple.svg"
+            src="assets/icons/primary/image-multiple.svg"
             class="navigation__button__icon"
           />
           <span class="navigation__button__label">Yay</span>
@@ -93,29 +97,57 @@
     <section>
       <h2 id="round-button">Round button</h2>
       <!-- BEGIN COMPONENT -->
+      <!-- Author: Alaa Imad Abdul-Al -->
       <button class="round-button">
-        <img src="shared/icons/primary/help.svg" class="round__icon">
+        <img src="assets/icons/primary/help.svg" class="round__icon">
       </button>
-
+      <a href="#" class="round-button">
+        <img src="assets/icons/primary/help.svg" class="round__icon">
+      </a>
+      <!-- END COMPONENT -->
+      
+      <!-- BEGIN COMPONENT -->
+      <!-- Author: Jonas Glerup Røssum -->
       <button class="round-button round-button--small">
-        <img src="shared/icons/primary/help.svg" class="round__icon">
+        <img src="assets/icons/primary/help.svg" class="round__icon">
       </button>
+      <a href="#" class="round-button round-button--small">
+        <img src="assets/icons/primary/help.svg" class="round__icon">
+      </a>
       <!-- END COMPONENT -->
     </section>
     
     <section>
       <h2 id="pagination">Pagination</h2>
       
+      <!-- BEGIN COMPONENT -->
+      <!-- Author: Jonas Glerup Røssum -->
       <nav class="pagination">
         <button class="round-button round-button--small">
-          <img src="shared/icons/primary/chevron-left.svg">
+          <img src="assets/icons/primary/chevron-left.svg">
 
         </button>
         <span class="pagination__current">Side 1 / 2</span>
-        <button class="round-button round-button--small">
-          <img src="shared/icons/primary/chevron-right.svg">
+        <button class="round-button round-button--small secondary">
+          <img src="assets/icons/primary/chevron-right.svg">
         </button>
       </nav>
+      <!-- END COMPONENT -->
     </section>
+
+    <section>
+      <h2 id="book">Book</h2>
+
+      <div class="book__page">
+        <input type="file" class="book__add-media">
+      </div>
+      
+      <div class="book__page">
+        <img src="https://placeimg.com/1000/700/animals" type="file" class="book__media">
+      </div>
+
+
+    </section>
+
   </body>
 </html>

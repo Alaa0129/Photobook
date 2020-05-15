@@ -1,3 +1,9 @@
+/*
+ * Author: Alaa Imad Abdul-Al
+ * Author: Jonas Glerup Røssum
+ */
+
+
 .round-button {
   width: calc(7 * var(--unit));
   height: calc(7 * var(--unit));
