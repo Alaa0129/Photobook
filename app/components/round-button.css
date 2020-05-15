@@ -1,7 +1,7 @@
 .round-button {
   width: calc(7 * var(--unit));
   height: calc(7 * var(--unit));
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--shadow);
   background: var(--secondary-background);
   color: var(--secondary-text);
   display: flex;
