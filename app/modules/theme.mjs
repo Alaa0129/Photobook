@@ -1,7 +1,7 @@
 /**
  * Themes
- * Author: Jonas Glerup Røssum
  * Author: Alaa Abdul-Al
+ * Author: Jonas Glerup Røssum
  */
 
 export default { init };
@@ -27,10 +27,9 @@ function init() {
       const { id, name, styles } = theme;
       themes[id] = theme;
       const el = document.createElement("option");
-      const span = document.createElement("span");
       el.textContent = name;;
-      span.className = "theme-span-overlay";
-      select.className = "theme-select.overlay";
+      select.className = "theme-select-overlay";
+      select.style.cursor = "pointer";
       el.style.color = `#${styles.primaryColor}`;
       el.value = id;
       el.style.backgroundColor = `#${styles.secondaryColor}`;
@@ -42,7 +41,7 @@ function init() {
 
     themeDialog.appendChild(select);
     themeElements.forEach((el) => select.appendChild(el));
-  
+
     select.addEventListener("change", function(event) {
       const selected_theme = themes[event.target.value];
       themeDialog.style.backgroundColor = "#" + selected_theme.styles.secondaryColor;

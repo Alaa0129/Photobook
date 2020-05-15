@@ -3,7 +3,6 @@
  * Author: Jonas Glerup Røssum
  */
 
-
 .round-button {
   width: calc(7 * var(--unit));
   height: calc(7 * var(--unit));
@@ -46,8 +45,3 @@
 .round-button:disabled {
   background: var(--primary);
 }
-
-/*   
-    shadow
-    minus border
-    farve skift til hover */

@@ -74,6 +74,16 @@ nextPageBtn.addEventListener('click', e => {
     image: page.image_url
   })
 
+  const currentPageNumber = document.getElementById("currentPage");
+  const totalPagesNumber = document.getElementById("totalPages");
+
+function topTextChanged(){
+  currentPageNumber.innerText = currentPage;
+}
+
+nextPageBtn.addEventListener('click', topTextChanged);
+ 
+
   main.appendChild(element)
 })
 
