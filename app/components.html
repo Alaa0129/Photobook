@@ -29,7 +29,7 @@
     </header>
 
     <section>
-      <h2>Typography</h2>
+      <h2 id="typography">Typography</h2>
       <!-- BEGIN COMPONENT -->
       <h1>Heading 1</h1>
       <h2>Heading 2</h2>
@@ -89,13 +89,33 @@
       </nav>
       <!-- END COMPONENT -->
     </section> 
+
     <section>
       <h2 id="round-button">Round button</h2>
       <!-- BEGIN COMPONENT -->
       <button class="round-button">
-        <img src="shared/icons/primary/help.svg" class="round__icon" />
+        <img src="shared/icons/primary/help.svg" class="round__icon">
+      </button>
+
+      <button class="round-button round-button--small">
+        <img src="shared/icons/primary/help.svg" class="round__icon">
       </button>
       <!-- END COMPONENT -->
+    </section>
+    
+    <section>
+      <h2 id="pagination">Pagination</h2>
+      
+      <nav class="pagination">
+        <button class="round-button round-button--small">
+          <img src="shared/icons/primary/chevron-left.svg">
+
+        </button>
+        <span class="pagination__current">Side 1 / 2</span>
+        <button class="round-button round-button--small">
+          <img src="shared/icons/primary/chevron-right.svg">
+        </button>
+      </nav>
     </section>
   </body>
 </html>

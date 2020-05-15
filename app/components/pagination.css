@@ -1,0 +1,12 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    user-select: none;
+}
+
+.pagination__current {
+    display: flex;
+    padding: var(--unit);
+    line-height: 100%;
+}
