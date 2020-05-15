@@ -1,0 +1,70 @@
+/**
+ * Navigation
+ * Author: Gustav Sølvsteen Olesen
+ */
+
+body{
+    background-color: lightgray;
+}
+
+
+.banner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-background);
+    padding-bottom: 5px;
+    border-bottom: black 3px solid;
+    margin-bottom: 20px;
+}
+
+.banner #title{
+    color: #ffffff;
+    -webkit-text-stroke:black 1.5px;
+    text-align: center;
+}
+
+.banner--small{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-background);
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-bottom: black 2px solid;
+    border-top: black 2px solid;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: #ffffff;
+    -webkit-text-stroke:black 1px;
+}
+
+.banner--bottom{
+    background: var(--primary-background);
+    padding-bottom: 15px;
+    padding-top: 5px;
+    border-top: black 3px solid;
+    margin-top: 10px;
+    color: #ffffff;
+    -webkit-text-stroke:black 1px;
+}
+
+.back-button{
+    position: fixed;
+    top: calc(2 * var(--unit));
+    right: calc(2 * var(--unit));
+    border: black 2px solid;
+}
+
+.text-container{
+    margin: 10px;
+    display: flex;
+}
+
+.images{
+    margin-right: 20px;
+    width: 25%;
+    height: 25%;
+    border: black 1px solid;
+}
+
