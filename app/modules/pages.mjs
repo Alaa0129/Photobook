@@ -40,10 +40,10 @@ function setPage(pageNumber, pageContent) {
 function delPage(pageNumber = null) {
   let state = storageRef.getState()
 
-  if (pageNumber) {
-    state.pages.splice(pageNumber)
-  } else {
+  if (pageNumber === null) {
     state.pages.pop()
+  } else {
+    state.pages.splice(pageNumber)
   }
 
   storageRef.setState(state)
@@ -52,7 +52,11 @@ function delPage(pageNumber = null) {
 function getPage(pageNumber = null) {
   let state = storageRef.getState()
 
+  console.log(state)
+
   if (pageNumber) {
+    console.log('get page')
+    console.log(state.pages[pageNumber])
     return state.pages[pageNumber]
   }
   return state.pages
@@ -67,38 +71,52 @@ const defaultState = {
       layout: "layout-one",
       type: "image",
       image_url: "url",
-      content: [
-        {
-          type: "title",
-          text: "Min titel",
+      content: {
+        title: {
+          text: "Titel",
           styles: {},
           extras: {},
         },
-        {
-          type: "caption",
-          text: "min caption",
+        caption: {
+          text: "Caption",
           styles: {},
           extras: {},
         }
-      ]
+      }
+    },
+    {
+      layout: "layout-one",
+      type: "image",
+      image_url: "url",
+      content: {
+        title: {
+          text: "Titel to",
+          styles: {},
+          extras: {},
+        },
+        caption: {
+          text: "Caption",
+          styles: {},
+          extras: {},
+        }
+      }
     },
     {
       layout: "layout-two",
-      type: "separator",
-      content: [
-        {
-          type: "title",
-          text: "Min titel",
+      type: "image",
+      image_url: "url",
+      content: {
+        title: {
+          text: "Titel 2",
           styles: {},
           extras: {},
         },
-        {
-          type: "caption",
-          text: "min caption",
+        caption: {
+          text: "Caption",
           styles: {},
           extras: {},
         }
-      ]
+      }
     }
   ]
 }

@@ -46,14 +46,34 @@ const nextPageBtn = document.querySelector('.next')
 let currentPage = 0
 
 prevPageBtn.addEventListener('click', e => {
-  currentPage--
+  currentPage = currentPage === 0 ? 0 : currentPage - 1
+  console.log(currentPage)
 
-  pages.getPage(currentPage)
+  const page = pages.getPage(currentPage)
+
+  const element = layout.createElement(`#${page.layout}`, {
+    title: page.content.title.text,
+    caption: page.content.caption.text,
+    image: page.image_url
+  })
+
+  main.appendChild(element)
 })
 
 nextPageBtn.addEventListener('click', e => {
   currentPage++
+  console.log(currentPage)
 
-  pages.getPage(currentPage)
+  const page = pages.getPage(currentPage)
+
+  console.log(page)
+
+  const element = layout.createElement(`#${page.layout}`, {
+    title: page.content.title.text,
+    caption: page.content.caption.text,
+    image: page.image_url
+  })
+
+  main.appendChild(element)
 })
 
