@@ -1,5 +1,28 @@
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: var(--font-family);
     font-size: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
+/* Header */
+.header {
+
+}
+.help-button {
+    position: fixed;
+    top: calc(2 * var(--unit));
+    right: calc(2 * var(--unit));
+}
+
+/* Main */
+.main {
+    flex-grow: 1;
+}
+
+
+/* Footer */
