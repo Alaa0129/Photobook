@@ -63,8 +63,13 @@
         </div>
       </nav>
     </main>
-    <dialog id="theme-dialog">
-      <h2>Vælg tema</h2>
+    <dialog id="theme-overlay">
+      <div class="theme-overlay__header">
+        <h2 class="theme-overlay-header__title">Vælg tema</h2>
+        <button class="round-button round-button--small round-button--transparent close-overlay" id="theme-close-button-overlay">
+          <img src="assets/icons/secondary/close.svg" class="round__icon">
+        </button>
+    </div>
     </dialog>
     <footer class="footer">
       <!-- Bottom navigation -->
