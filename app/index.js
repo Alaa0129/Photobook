@@ -1,8 +1,8 @@
 import theme from './modules/theme.mjs'
 import storage from './modules/storage.mjs'
-import Pages from './modules/pages.mjs'
+// import Pages from './modules/pages.mjs'
 
-const pages = Pages(storage)
+// const pages = Pages(storage)
 
 
 theme.init();

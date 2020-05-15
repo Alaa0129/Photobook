@@ -2,13 +2,63 @@
  * Author: Jonas Glerup Røssum
  */
 
-.book {}
+.book {
+  /* Only for testing */
+  min-height: calc(64 * var(--unit));
+  display: flex;
+  /* background-color: var(--secondary-background); */
+  justify-content: center;
+  flex-direction: column;
+}
 
 .book__page {
-    background-color: var(--secondary-background);
+  padding: var(--unit);
+  flex-grow: 1;
+  background-color: var(--secondary-background);
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.book__add-media {
+  border: calc(var(--unit) / 4) dashed var(--secondary-text);
+  box-sizing: border-box;
+  border-radius: calc(2 * var(--unit));
+  padding: calc(7 * var(--unit)) calc(5 * var(--unit));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.book__add-media::before,
+.book__add-media::after {
+  margin: var(--unit);
+}
+.book__add-media::before {
+  content: "Klik her for at vælge et billede";
+  line-height: 150%;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: calc(var(--unit) / 2);
+  color: var(--secondary-text);
+}
+.book__add-media::after {
+  content: "";
+  display: block;
+  width: calc(3 * var(--unit));
+  height: calc(3 * var(--unit));
+  background-image: url(../assets/icons/secondary/camera-plus.svg);
+}
+
+.book__add-media input[type="file"] {
+  display: none;
 }
 
 .book__media {
-    max-width: 100%;
-    height: auto;
+  object-fit: contain;
+  width: 100%;
+  height: auto;
 }
