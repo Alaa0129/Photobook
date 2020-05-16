@@ -14,6 +14,7 @@ function init() {
   const themeButton = document.getElementById("theme-button");
   const themeDialog = document.getElementById("theme-overlay");
   const closeButton = document.getElementById("theme-close-button-overlay");
+  const chooseButtonText = document.getElementById("theme-choose-button-overlay");
 
   themeButton.addEventListener("click", async () => {
     if (themeDialog.open) return;
@@ -47,6 +48,9 @@ function init() {
       themeDialog.style.backgroundColor = "#" + selected_theme.styles.secondaryColor;
       themeDialog.style.color = "#" + selected_theme.styles.primaryColor;
       themeDialog.style.fontFamily = selected_theme.styles.fontFamily;
+      chooseButtonText.style.backgroundColor = "#" + selected_theme.styles.secondaryColor;
+      chooseButtonText.style.color = "#" + selected_theme.styles.primaryColor;
+      chooseButtonText.style.fontFamily = selected_theme.styles.fontFamily;
     })
   });
 

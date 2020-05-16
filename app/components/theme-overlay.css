@@ -31,13 +31,17 @@
     margin-left: 280px;
 }
 
-.theme-overlay-header__title {
-    padding-right: calc(2*var(--unit));
-    align-items: center;
-    justify-content: center;
-}
-
 .theme-select-overlay {
     margin-top: calc(2*var(--unit));
 }
   
+.theme-overlay-button__choose {
+    width: calc(7 * var(--unit));
+    height: calc(4 * var(--unit));    
+    border-radius: calc(2*var(--unit));
+    color: black;
+    font-weight: bold;
+    position: relative;
+    margin-top: 40px;
+    float: right;
+}
