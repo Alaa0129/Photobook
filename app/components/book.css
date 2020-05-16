@@ -4,7 +4,6 @@
 
 .book {
   /* Only for testing */
-  min-height: calc(64 * var(--unit));
   display: flex;
   /* background-color: var(--secondary-background); */
   justify-content: center;
@@ -17,6 +16,7 @@
   background-color: var(--secondary-background);
   box-shadow: var(--shadow);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -32,6 +32,11 @@
   align-items: center;
   cursor: pointer;
 }
+.book__add-media:not(:empty) {
+  /* display: none; */
+}
+
+.book__add-media
 
 .book__add-media::before,
 .book__add-media::after {
@@ -53,7 +58,7 @@
   background-image: url(../assets/icons/secondary/camera-plus.svg);
 }
 
-.book__add-media input[type="file"] {
+.book__add-media + input[type="file"] {
   display: none;
 }
 

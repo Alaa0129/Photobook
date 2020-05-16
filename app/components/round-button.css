@@ -20,11 +20,15 @@
   transition: box-shadow 0.25s;
 }
 
-.round-button:hover {
+.round-button:disabled {
+  cursor: initial;
+}
+
+.round-button:not(:disabled):hover {
   box-shadow: var(--shadow-hover);
 }
 
-.round-button:active {
+.round-button:not(:disabled):active {
     box-shadow: var(--shadow-active);
 }
 

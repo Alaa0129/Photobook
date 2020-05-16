@@ -4,8 +4,11 @@
  */
 export default {
   setState,
-  getState
+  getState,
+  subscribe
 }
+
+const subscribers = []
 
 /**
  * API
@@ -17,10 +20,19 @@ function setState(newState) {
   } else {
     appstate = newState
   }
+  for (let subscriber of subscribers) {
+    subscriber(appstate)
+  }
 }
 
 function getState() {
-  return appstate
+  return { ...appstate }
+}
+
+function subscribe(callback) {
+  const index = subscribers.length
+  subscribers.push(callback)
+  return () => subscribers.filter((_, i) => i !== index)
 }
 
 let appstate = {}

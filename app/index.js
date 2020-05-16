@@ -1,79 +1,68 @@
-import theme from './modules/theme.mjs'
-import storage from './modules/storage.mjs'
-import Pages from './modules/pages.mjs'
-import Layout from './modules/layout.mjs'
+import theme from "./modules/theme.mjs";
+import storage from "./modules/storage.mjs";
+import Pages from "./modules/pages.mjs";
+import Layout from "./modules/layout.mjs";
 
 theme.init();
 
-/** WIP */
-const pages = Pages(storage)
+const pages = Pages(storage);
+const layout = Layout();
+const bookElement = document.getElementById("book");
 
-// Create default layout
-const main = document.querySelector('.main')
 
-const layout = Layout()
+storage.subscribe(() => {
+  const page = pages.getPage(pages.getCurrentPageIndex());
+  const pageElement = layout.createElement(page.layout, {
+    ".title textContent": page.content.title.text,
+    ".caption textContent": page.content.caption.text,
+    ".book__media src": page.image_url,
+    ".book__media hidden": !page.image_url,
+    ".book__add-media hidden": Boolean(page.image_url),
+  });
 
-main.appendChild(
-
-  layout.createElement('#layout-one', {
-    title: 'Title',
-    author: 'Raisa'
+  const pagination = document.getElementById("pagination-container")
+  pagination.innerHTML = ''
+  const paginationContent = layout.createElement("pagination", {
+    ".pagination__current textContent": `Side ${
+      pages.getCurrentPageIndex() + 1
+    } / ${pages.getPageCount()}`,
+    "button:first-of-type onclick": () => gotoPage(-1),
+    "button:last-of-type onclick": () => gotoPage(1)
   })
+  pagination.appendChild(paginationContent);
 
-)
+  bookElement.innerHTML = '';
+  bookElement.appendChild(pageElement);
+});
+
+pages.init();
 
 // Event Delegator
-main.addEventListener('change', e => {
-  if (e.target && e.target.matches('.file-plane')) fileUpload(e)
-})
+bookElement.addEventListener("change", (e) => {
+  if (e.target && e.target.className.includes("file-plane")) fileUpload(e);
+});
 
 function fileUpload(ev) {
-  let image = ev.target.parentElement.querySelector('.img')
-
-  let reader = new FileReader()
+  let reader = new FileReader();
 
   reader.onload = () => {
-    image.src = reader.result
-  }
+    // Save base64 to state
 
-  reader.readAsDataURL(ev.target.files[0])
+    storage.setState((stateDraft) => {
+      stateDraft.pages[pages.getCurrentPageIndex()].image_url = reader.result;
+      return stateDraft;
+    });
+  };
+
+  reader.readAsDataURL(ev.target.files[0]);
 }
 
 // Paging
-const prevPageBtn = document.querySelector('.prev')
-const nextPageBtn = document.querySelector('.next')
+function gotoPage(direction) {
+  const currentPageIndex = pages.getCurrentPageIndex();
+  if (currentPageIndex + direction < 0) return;
+  // TODO: Add support for creating new pages
+  if (currentPageIndex + direction >= pages.getPageCount()) return;
 
-let currentPage = 0
-
-prevPageBtn.addEventListener('click', e => {
-  currentPage = currentPage === 0 ? 0 : currentPage - 1
-  console.log(currentPage)
-
-  const page = pages.getPage(currentPage)
-
-  const element = layout.createElement(`#${page.layout}`, {
-    title: page.content.title.text,
-    caption: page.content.caption.text,
-    image: page.image_url
-  })
-
-  main.appendChild(element)
-})
-
-nextPageBtn.addEventListener('click', e => {
-  currentPage++
-  console.log(currentPage)
-
-  const page = pages.getPage(currentPage)
-
-  console.log(page)
-
-  const element = layout.createElement(`#${page.layout}`, {
-    title: page.content.title.text,
-    caption: page.content.caption.text,
-    image: page.image_url
-  })
-
-  main.appendChild(element)
-})
-
+  pages.setCurrentPageIndex(pages.getCurrentPageIndex() + direction);
+}

@@ -21,6 +21,7 @@
 
 .navigation__button {
     font-size: 1rem;
+    margin: 0 var(--unit);
     background-color: transparent;
     color: inherit;
     text-align: center;

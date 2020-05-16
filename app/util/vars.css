@@ -23,7 +23,7 @@
 }
 
 .secondary {
-    background-color: var(--secondary-back);
+    background-color: var(--secondary-backround);
 }
 .secondary-text {
     color: var(--secondary-text);

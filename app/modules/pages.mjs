@@ -4,73 +4,88 @@
  */
 
 /* Init */
-let storageRef
+let storageRef;
 
-export default function init(storage) {
-  storageRef = storage
-  storage.setState(defaultState)
-
-  return {
-    addPage,
-    getPage,
-    setPage,
-    delPage,
-  }
-}
+export default (storage) => ({
+  init() {
+    storageRef = storage;
+    storage.setState(defaultState);
+  },
+  addPage,
+  getPage,
+  getPageCount,
+  setPage,
+  delPage,
+  getCurrentPageIndex,
+  setCurrentPageIndex,
+});
 
 /**
  * API
  */
 function addPage(page) {
-  let state = storageRef.getState()
+  let state = storageRef.getState();
 
-  state.pages.push(page)
-
-  storageRef.setState(state)
+  state.pages.push(page);
+  storageRef.setState(state);
 }
 
 function setPage(pageNumber, pageContent) {
-  let state = storageRef.getState()
+  let state = storageRef.getState();
 
-  state.pages[pageNumber] = pageContent
-
-  storageRef.setState(state)
+  state.pages[pageNumber] = pageContent;
+  storageRef.setState(state);
 }
 
 function delPage(pageNumber = null) {
-  let state = storageRef.getState()
+  let state = storageRef.getState();
 
   if (pageNumber === null) {
-    state.pages.pop()
+    state.pages.pop();
   } else {
-    state.pages.splice(pageNumber)
+    state.pages.splice(pageNumber);
   }
 
-  storageRef.setState(state)
+  storageRef.setState(state);
 }
 
 function getPage(pageNumber = null) {
-  let state = storageRef.getState()
+  let state = storageRef.getState();
 
-  console.log(state)
+  console.log(state);
 
-  if (pageNumber) {
-    console.log('get page')
-    console.log(state.pages[pageNumber])
-    return state.pages[pageNumber]
+  if (pageNumber !== null) {
+    console.log("get page");
+    console.log(state.pages[pageNumber]);
+    return state.pages[pageNumber];
   }
-  return state.pages
+  return state.pages;
 }
 
+function getPageCount() {
+  return storageRef.getState().pages.length;
+}
+
+function getCurrentPageIndex() {
+  return storageRef.getState().currentPageIndex;
+}
+
+function setCurrentPageIndex(index) {
+  storageRef.setState((stateDraft) => {
+    stateDraft.currentPageIndex = index;
+    return stateDraft;
+  });
+}
 
 /* default value */
 const defaultState = {
   title: "Fotobog",
+  currentPageIndex: 0,
   pages: [
     {
       layout: "layout-one",
       type: "image",
-      image_url: "url",
+      image_url: null,
       content: {
         title: {
           text: "Titel",
@@ -81,13 +96,13 @@ const defaultState = {
           text: "Caption",
           styles: {},
           extras: {},
-        }
-      }
+        },
+      },
     },
     {
       layout: "layout-one",
       type: "image",
-      image_url: "url",
+      image_url: null,
       content: {
         title: {
           text: "Titel to",
@@ -98,13 +113,13 @@ const defaultState = {
           text: "Caption",
           styles: {},
           extras: {},
-        }
-      }
+        },
+      },
     },
     {
       layout: "layout-two",
       type: "image",
-      image_url: "url",
+      image_url: null,
       content: {
         title: {
           text: "Titel 2",
@@ -115,11 +130,11 @@ const defaultState = {
           text: "Caption",
           styles: {},
           extras: {},
-        }
-      }
-    }
-  ]
-}
+        },
+      },
+    },
+  ],
+};
 
 const oldState = {
   title: "Min fotobog",
@@ -156,4 +171,4 @@ const oldState = {
       ],
     },
   ],
-}
+};

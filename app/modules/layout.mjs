@@ -5,12 +5,14 @@ export default function init() {
 }
 
 function createElement(layout, content) {
-  const fragment = document.querySelector(layout)
+  const fragment = document.getElementById(layout)
   const instance = document.importNode(fragment.content, true)
 
   for (const [key, val] of Object.entries(content)) {
-    const elem = instance.querySelector(`.${key}`)
-    elem.innerHTML = val
+    const [selector, property = null] = key.split(' ')
+    const elem = instance.querySelector(selector)
+    if (property) elem[property] = val
+    else elem.innerHTML = val
   }
 
   return instance

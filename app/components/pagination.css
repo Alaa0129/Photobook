@@ -5,10 +5,9 @@
 .pagination {
     display: flex;
     padding: var(--unit);
-    align-items: center;
-    justify-content: center;
     /* flex-direction: row; */
     user-select: none;
+    justify-content: center;
 }
 
 .pagination__current {
@@ -18,5 +17,6 @@
 }
 
 .pagination__inner {
+    align-items: center;
     display: flex;
 }
