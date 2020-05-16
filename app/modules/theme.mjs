@@ -1,7 +1,7 @@
 /**
  * Themes
- * Author: Jonas Glerup Røssum
  * Author: Alaa Abdul-Al
+ * Author: Jonas Glerup Røssum
  */
 
 
@@ -30,6 +30,7 @@ async function init() {
 
     return el;
   });
+  const chooseButtonText = document.getElementById("theme-choose-button-overlay");
 
   themeDialog.appendChild(select);
   themeElements.forEach((el) => select.appendChild(el));
@@ -39,6 +40,9 @@ async function init() {
     themeDialog.style.backgroundColor = "#" + selected_theme.styles.secondaryColor;
     themeDialog.style.color = "#" + selected_theme.styles.primaryColor;
     themeDialog.style.fontFamily = selected_theme.styles.fontFamily;
+    chooseButtonText.style.backgroundColor = "#" + selected_theme.styles.secondaryColor;
+    chooseButtonText.style.color = "#" + selected_theme.styles.primaryColor;
+    chooseButtonText.style.fontFamily = selected_theme.styles.fontFamily;
   })
   
   themeButton.addEventListener("click", async () => {
