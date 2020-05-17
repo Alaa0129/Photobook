@@ -4,22 +4,32 @@ import storage from "./modules/storage.mjs";
 import Pages from "./modules/pages.mjs";
 import Layout from "./modules/layout.mjs";
 
-
 const pages = Pages(storage);
 const layout = Layout();
 const bookElement = document.getElementById("book");
+const dialogBackdrop = document.getElementById("dialog-backdrop");
+
+dialogBackdrop.addEventListener("click", function (evt) {
+  debugger
+  if (evt.target === dialogBackdrop) {
+    [...dialogBackdrop.children].forEach((c) => (c.open = false));
+    document.body.classList.remove("backdrop-active");
+  } else {
+    evt.stopPropagation()
+  }
+});
 
 storage.subscribe(() => {
-  if (pages.getSelectedPageIndex() === null) return
+  if (pages.getSelectedPageIndex() === null) return;
   const page = pages.getPage(pages.getSelectedPageIndex());
   const pageElement = layout.createElement(page.layout, {
     ".book__title|textContent": page.content.title.text,
-    ...page.image_url && {"img|src": page.image_url},
-    [`${!page.image_url ? 'img' : 'label'}|style`]: 'display: none'
+    ...(page.image_url && { "img|src": page.image_url }),
+    [`${!page.image_url ? "img" : "label"}|style`]: "display: none",
   });
 
-  const pagination = document.getElementById("pagination-container")
-  pagination.innerHTML = ''
+  const pagination = document.getElementById("pagination-container");
+  pagination.innerHTML = "";
   const paginationContent = layout.createElement("pagination", {
     ".pagination__current|textContent": `Side ${
       pages.getSelectedPageIndex() + 1
@@ -27,11 +37,14 @@ storage.subscribe(() => {
     "button:first-of-type|onclick": () => gotoPage(-1),
     "button:first-of-type|disabled": pages.getSelectedPageIndex() === 0,
     "button:last-of-type|onclick": () => gotoPage(1),
-    "button:last-of-type img|src": pages.getSelectedPageIndex() + 1 === pages.getPage().length ? 'assets/icons/primary/plus.svg' : 'assets/icons/primary/chevron-right.svg'
-  })
+    "button:last-of-type img|src":
+      pages.getSelectedPageIndex() + 1 === pages.getPage().length
+        ? "assets/icons/primary/plus.svg"
+        : "assets/icons/primary/chevron-right.svg",
+  });
   pagination.appendChild(paginationContent);
 
-  bookElement.innerHTML = '';
+  bookElement.innerHTML = "";
   bookElement.appendChild(pageElement);
 });
 
@@ -41,28 +54,32 @@ layoutDialog.init();
 
 // Event Delegator
 bookElement.addEventListener("input", (e) => {
-  switch(e.target.className) {
-    case 'file-plane': fileUpload(e)
-    break;
+  switch (e.target.className) {
+    case "file-plane":
+      fileUpload(e);
+      break;
     default:
-    break;
+      break;
   }
 });
 
 bookElement.addEventListener("keydown", (e) => {
   switch (e.target.className) {
-    case "book__title": {
+    case "book__title":
+      {
         if (e.key === "Enter") setPageTitle(e);
-    }
-    break;
+      }
+      break;
     default:
-    break;
+      break;
   }
 });
 
 function setPageTitle(e) {
   storage.setState((stateDraft) => {
-    stateDraft.pages[pages.getSelectedPageIndex()].content.title.text = e.target.textContent.trim();
+    stateDraft.pages[
+      pages.getSelectedPageIndex()
+    ].content.title.text = e.target.textContent.trim();
     return stateDraft;
   });
 }
