@@ -82,3 +82,9 @@ body {
 .book {
     flex-grow: 1;
 }
+
+@media (max-width: 720px) {
+    .book__add-media::before {
+        display: none;
+    }
+}

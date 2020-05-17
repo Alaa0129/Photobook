@@ -10,7 +10,7 @@
   width: calc(100vmin - 31 * var(--unit));
   background-color: white;
   box-shadow: var(--shadow);
-  padding: calc(4 * var(--unit));
+  padding: calc(0.05 * (100vmin - 31 * var(--unit)));
   margin: calc(4 * var(--unit));
   
   justify-content: center;
@@ -35,7 +35,7 @@
 
 .book__title {
   font-size: calc(0.05 * (100vmin - 31 * var(--unit)));
-  margin: calc(4 * var(--unit));
+  margin: calc(0.05 * (100vmin - 31 * var(--unit)));
 }
 
 .book__media {
