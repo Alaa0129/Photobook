@@ -2,8 +2,10 @@
  * Themes
  */
 
-/* Author: Jonas Glerup Røssum */
-/* Author: Alaa Abdul-Al */
+/** 
+ * Author: Alaa Abdul-Al 
+ * Author: Jonas Glerup Røssum 
+ */
 
 import storage from './storage.mjs'
 
