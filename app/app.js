@@ -10,7 +10,6 @@ const bookElement = document.getElementById("book");
 const dialogBackdrop = document.getElementById("dialog-backdrop");
 
 dialogBackdrop.addEventListener("click", function (evt) {
-  debugger
   if (evt.target === dialogBackdrop) {
     [...dialogBackdrop.children].forEach((c) => (c.open = false));
     document.body.classList.remove("backdrop-active");
