@@ -23,6 +23,18 @@ storage.subscribe(() => {
   const page = pages.getPage(pages.getSelectedPageIndex());
   const pageElement = layout.createElement(page.layout, {
     ".book__title|textContent": page.content.title.text,
+    ".book__title|onblur": (e) => {
+      console.log(e)
+      switch (e.target.className) {
+        case "book__title":
+          {
+            setPageTitle(e);
+          }
+          break;
+        default:
+          break;
+      }
+    },
     ...(page.image_url && { "img|src": page.image_url }),
     [`${!page.image_url ? "img" : "label"}|style`]: "display: none",
   });
@@ -67,18 +79,6 @@ bookElement.addEventListener("keydown", (e) => {
     case "book__title":
       {
         if (e.key === "Enter") setPageTitle(e);
-      }
-      break;
-    default:
-      break;
-  }
-});
-
-bookElement.addEventListener("blur", (e) => {
-  switch (e.target.className) {
-    case "book__title":
-      {
-        setPageTitle(e);
       }
       break;
     default:
