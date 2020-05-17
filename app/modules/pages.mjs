@@ -81,7 +81,7 @@ function setCurrentPageIndex(index) {
 const defaultState = {
   title: "Fotobog",
   currentPageIndex: 0,
-  selectedTheme: 0,
+  selectedTheme: null,
   pages: [
     {
       layout: "layout-one",

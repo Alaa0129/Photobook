@@ -9,7 +9,6 @@ const pages = Pages(storage);
 const layout = Layout();
 const bookElement = document.getElementById("book");
 
-
 storage.subscribe(() => {
   const page = pages.getPage(pages.getCurrentPageIndex());
   const pageElement = layout.createElement(page.layout, {

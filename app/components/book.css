@@ -8,7 +8,8 @@
   height: calc(100vmin - 24 * var(--unit));
   min-height: 100 * var(--unit);
   width: calc(100vmin - 24 * var(--unit));
-  background-color: var(--secondary-background);
+  background-color: white;
+  /* background-color: var(--secondary-background); */
   box-shadow: var(--shadow);
   padding: calc(4 * var(--unit));
   margin: calc(4 * var(--unit));

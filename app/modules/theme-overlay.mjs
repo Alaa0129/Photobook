@@ -1,21 +1,34 @@
 /**
  * Themes
- * Author: Alaa Abdul-Al
  * Author: Jonas Glerup Røssum
  */
+
+import storage from './storage.mjs'
 
 export default { init };
 
 const themeAPI = "https://itu-sdbg-s2020.now.sh/api/themes";
 let themes = {};
+let select
 
+storage.subscribe(state => {
+  if (state.selectedTheme === null) return
+  const theme = themes[state.selectedTheme]
+  const book = document.getElementById('book')
+
+  book.style.backgroundColor = "#" + theme.styles.secondaryColor;
+  book.style.color = "#" + theme.styles.primaryColor;
+  book.style.fontFamily = theme.styles.fontFamily;
+
+  if (select && Object.values(themes).length > 0) select.querySelector(`option[value="${state.selectedTheme}"]`).selected = true
+})
 
 async function init() {
   const themeButton = document.getElementById("theme-button");
   const themeDialog = document.getElementById("theme-overlay");
   const closeButton = document.getElementById("theme-overlay__close-button");
   const dialogBackdrop = document.getElementById('dialog-backdrop')
-  const select = document.createElement("select");
+  select = document.createElement("select");
   const result = await fetch(themeAPI).then((r) => r.json());
 
   const themeElements = result.themes.map((theme) => {
@@ -25,21 +38,21 @@ async function init() {
     el.textContent = name;
     select.className = "theme-overlay__select";
     el.value = id;
+    if (storage.getState().selectedTheme === id) el.selected = true
 
     return el;
   });
 
+
+  
   themeDialog.appendChild(select);
   themeElements.forEach((el) => select.appendChild(el));
 
   select.addEventListener("change", function(event) {
-    const selected_theme = themes[event.target.value];
-    const book = document.getElementById('book')
-    debugger
-    book.style.backgroundColor = "#" + selected_theme.styles.secondaryColor;
-    book.style.color = "#" + selected_theme.styles.primaryColor;
-    book.style.fontFamily = selected_theme.styles.fontFamily;
-
+    storage.setState(stateDraft => {
+      stateDraft.selectedTheme = event.target.value
+      return stateDraft
+    })
   })
   
   themeButton.addEventListener("click", async () => {
@@ -48,12 +61,14 @@ async function init() {
     document.body.classList.add('backdrop-active')
   });
 
-  function applySelectedTheme(themeID) {
-
-  }
-
   closeButton.addEventListener("click", function() {
     themeDialog.open = false;
     document.body.classList.remove('backdrop-active')
+  })
+
+  // Set initial theme
+  storage.setState(stateDraft => {
+    stateDraft.selectedTheme = Object.keys(themes)[2]
+    return stateDraft
   })
 }
