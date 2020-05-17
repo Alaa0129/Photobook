@@ -34,6 +34,7 @@
 }
 
 .book__title {
+  font-size: calc(0.05 * (100vmin - 31 * var(--unit)));
   margin: calc(4 * var(--unit));
 }
 
@@ -46,11 +47,11 @@
 
 .book__add-media {
   flex-grow: 1;
-  margin: calc(4 * var(--unit));
+  margin: calc(2 * var(--unit));
   border: calc(var(--unit) / 4) dashed var(--primary-text);
   box-sizing: border-box;
   border-radius: calc(2 * var(--unit));
-  padding: calc(7 * var(--unit)) calc(5 * var(--unit));
+  padding: calc(2 * var(--unit)) calc(5 * var(--unit));
   display: flex;
   flex-direction: column;
   justify-content: center;
