@@ -17,13 +17,32 @@ export default (storage) => ({
   setPage,
   delPage,
   getSelectedPageIndex,
-  setselectedPageIndex,
+  setSelectedPageIndex,
 });
 
 /**
  * API
  */
-function addPage(page) {
+
+const defaultPage = {
+  layout: "layout-one",
+  type: "image",
+  image_url: null,
+  content: {
+    title: {
+      text: "Titel",
+      styles: {},
+      extras: {},
+    },
+    caption: {
+      text: "Caption",
+      styles: {},
+      extras: {},
+    },
+  },
+}
+
+function addPage(page = defaultPage) {
   let state = storageRef.getState();
 
   state.pages.push(page);
@@ -70,12 +89,14 @@ function getSelectedPageIndex() {
   return storageRef.getState().selectedPageIndex;
 }
 
-function setselectedPageIndex(index) {
+function setSelectedPageIndex(index) {
   storageRef.setState((stateDraft) => {
     stateDraft.selectedPageIndex = index;
     return stateDraft;
   });
 }
+
+
 
 /* default value */
 const defaultState = {
@@ -83,57 +104,59 @@ const defaultState = {
   selectedPageIndex: null,
   selectedTheme: null,
   pages: [
-    {
-      layout: "layout-one",
-      type: "image",
-      image_url: null,
-      content: {
-        title: {
-          text: "Titel",
-          styles: {},
-          extras: {},
-        },
-        caption: {
-          text: "Caption",
-          styles: {},
-          extras: {},
-        },
-      },
-    },
-    {
-      layout: "layout-one",
-      type: "image",
-      image_url: null,
-      content: {
-        title: {
-          text: "Titel to",
-          styles: {},
-          extras: {},
-        },
-        caption: {
-          text: "Caption",
-          styles: {},
-          extras: {},
-        },
-      },
-    },
-    {
-      layout: "layout-two",
-      type: "image",
-      image_url: null,
-      content: {
-        title: {
-          text: "Titel 2",
-          styles: {},
-          extras: {},
-        },
-        caption: {
-          text: "Caption",
-          styles: {},
-          extras: {},
-        },
-      },
-    },
+    defaultPage
+    // {
+    //   layout: "layout-one",
+    //   type: "image",
+    //   image_url: null,
+    //   content: {
+    //     title: {
+    //       text: "Titel",
+    //       styles: {},
+    //       extras: {},
+    //     },
+    //     caption: {
+    //       text: "Caption",
+    //       styles: {},
+    //       extras: {},
+    //     },
+    //   },
+    // }
+    // ,
+    // {
+    //   layout: "layout-one",
+    //   type: "image",
+    //   image_url: null,
+    //   content: {
+    //     title: {
+    //       text: "Titel to",
+    //       styles: {},
+    //       extras: {},
+    //     },
+    //     caption: {
+    //       text: "Caption",
+    //       styles: {},
+    //       extras: {},
+    //     },
+    //   },
+    // },
+    // {
+    //   layout: "layout-two",
+    //   type: "image",
+    //   image_url: null,
+    //   content: {
+    //     title: {
+    //       text: "Titel 2",
+    //       styles: {},
+    //       extras: {},
+    //     },
+    //     caption: {
+    //       text: "Caption",
+    //       styles: {},
+    //       extras: {},
+    //     },
+    //   },
+    // },
   ],
 };
 

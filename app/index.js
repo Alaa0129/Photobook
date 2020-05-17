@@ -13,19 +13,21 @@ storage.subscribe(() => {
   if (pages.getSelectedPageIndex() === null) return
   const page = pages.getPage(pages.getSelectedPageIndex());
   const pageElement = layout.createElement(page.layout, {
-    ".book__title textContent": page.content.title.text,
-    ...page.image_url && {"img src": page.image_url},
-    [`${!page.image_url ? 'img' : 'label'} style`]: 'display: none'
+    ".book__title|textContent": page.content.title.text,
+    ...page.image_url && {"img|src": page.image_url},
+    [`${!page.image_url ? 'img' : 'label'}|style`]: 'display: none'
   });
 
   const pagination = document.getElementById("pagination-container")
   pagination.innerHTML = ''
   const paginationContent = layout.createElement("pagination", {
-    ".pagination__current textContent": `Side ${
+    ".pagination__current|textContent": `Side ${
       pages.getSelectedPageIndex() + 1
     } / ${pages.getPageCount()}`,
-    "button:first-of-type onclick": () => gotoPage(-1),
-    "button:last-of-type onclick": () => gotoPage(1)
+    "button:first-of-type|onclick": () => gotoPage(-1),
+    "button:first-of-type|disabled": pages.getSelectedPageIndex() === 0,
+    "button:last-of-type|onclick": () => gotoPage(1),
+    "button:last-of-type img|src": pages.getSelectedPageIndex() + 1 === pages.getPage().length ? 'assets/icons/primary/plus.svg' : 'assets/icons/primary/chevron-right.svg'
   })
   pagination.appendChild(paginationContent);
 
@@ -83,7 +85,10 @@ function gotoPage(direction) {
   const selectedPageIndex = pages.getSelectedPageIndex();
   if (selectedPageIndex + direction < 0) return;
   // TODO: Add support for creating new pages
-  if (selectedPageIndex + direction >= pages.getPageCount()) return;
+  if (selectedPageIndex + direction >= pages.getPageCount()) {
+    pages.addPage();
+    layoutDialog.show();
+  }
 
-  pages.setselectedPageIndex(pages.getSelectedPageIndex() + direction);
+  pages.setSelectedPageIndex(pages.getSelectedPageIndex() + direction);
 }

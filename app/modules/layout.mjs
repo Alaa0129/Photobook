@@ -9,7 +9,7 @@ function createElement(layout, content) {
   const instance = document.importNode(fragment.content, true)
 
   for (const [key, val] of Object.entries(content)) {
-    const [selector, property = null] = key.split(' ')
+    const [selector, property = null] = key.split('|')
     const elem = instance.querySelector(selector)
     if (property) elem[property] = val
     else elem.innerHTML = val

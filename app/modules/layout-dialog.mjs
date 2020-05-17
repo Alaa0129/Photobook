@@ -5,7 +5,7 @@
 
 import storage from "./storage.mjs";
 
-export default { init };
+export default { init, show };
 
 const layoutAPI = "https://itu-sdbg-s2020.now.sh/api/layouts";
 let layouts = {
@@ -34,9 +34,11 @@ storage.subscribe((state) => {
     select.querySelector(`option[value="${layoutID}"]`).selected = true;
 });
 
+let layoutDialog
+
 async function init() {
   const layoutButton = document.getElementById("layout-button");
-  const layoutDialog = document.getElementById("layout-dialog");
+  layoutDialog = document.getElementById("layout-dialog");
   const closeButton = document.getElementById("layout-dialog__close-button");
   const dialogBackdrop = document.getElementById("dialog-backdrop");
   select = document.createElement("select");
@@ -63,9 +65,7 @@ async function init() {
   });
 
   layoutButton.addEventListener("click", () => {
-    if (layoutDialog.open) return;
-    layoutDialog.open = true;
-    document.body.classList.add("backdrop-active");
+    show()
   });
 
   closeButton.addEventListener("click", function () {
@@ -78,4 +78,10 @@ async function init() {
     stateDraft.selectedPageIndex = 0;
     return stateDraft;
   });
+}
+
+function show() {
+  if (layoutDialog.open) return;
+  layoutDialog.open = true;
+  document.body.classList.add("backdrop-active");
 }
