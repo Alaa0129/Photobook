@@ -35,7 +35,8 @@ storage.subscribe(() => {
       }
     },
     ...(page.image_url && { "img|src": page.image_url }),
-    [`${!page.image_url ? "img" : "label"}|style`]: "display: none",
+    ...(!page.image_url && {"img|style": "display: none"}),
+    ".book__media|className": page.image_url ? "book__media book__media--has-img" : "book__media"
   });
 
   const pagination = document.getElementById("pagination-container");

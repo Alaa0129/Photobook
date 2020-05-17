@@ -47,23 +47,24 @@
 
 .book__add-media {
   flex-grow: 1;
-  margin: calc(2 * var(--unit));
-  border: calc(var(--unit) / 4) dashed var(--primary-text);
   box-sizing: border-box;
-  border-radius: calc(2 * var(--unit));
-  padding: calc(2 * var(--unit)) calc(5 * var(--unit));
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 }
-
-.book__add-media::before,
-.book__add-media::after {
+.book__media:not(.book__media--has-img) .book__add-media {
+  margin: calc(2 * var(--unit));
+  border: calc(var(--unit) / 4) dashed var(--primary-text);
+  border-radius: calc(2 * var(--unit));
+  padding: calc(2 * var(--unit)) calc(5 * var(--unit));
+}
+.book__media:not(.book__media--has-img) .book__add-media::before,
+.book__media:not(.book__media--has-img) .book__add-media::after {
   margin: var(--unit);
 }
-.book__add-media::before {
+.book__media:not(.book__media--has-img) .book__add-media::before {
   content: "Klik for at vælge et billede";
   font-family: var(--font-family);
   line-height: 150%;
@@ -72,7 +73,7 @@
   letter-spacing: calc(var(--unit) / 2);
   color: var(--primary-text);
 }
-.book__add-media::after {
+.book__media:not(.book__media--has-img) .book__add-media::after {
   content: "";
   display: block;
   width: calc(3 * var(--unit));
