@@ -47,7 +47,7 @@
 .book__add-media {
   flex-grow: 1;
   margin: calc(4 * var(--unit));
-  border: calc(var(--unit) / 4) dashed var(--secondary-text);
+  border: calc(var(--unit) / 4) dashed var(--primary-text);
   box-sizing: border-box;
   border-radius: calc(2 * var(--unit));
   padding: calc(7 * var(--unit)) calc(5 * var(--unit));
@@ -69,7 +69,7 @@
   text-align: center;
   text-transform: uppercase;
   letter-spacing: calc(var(--unit) / 2);
-  color: var(--secondary-text);
+  color: var(--primary-text);
 }
 .book__add-media::after {
   content: "";
