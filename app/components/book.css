@@ -37,6 +37,7 @@
   white-space: pre-wrap;
   word-break: break-all;
   margin: calc(0.05 * (100vmin - 31 * var(--unit)));
+  text-align: center;
 }
 
 .book__media {
