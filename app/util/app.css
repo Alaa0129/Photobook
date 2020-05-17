@@ -85,7 +85,7 @@ body {
     flex-grow: 1;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 720px), (max-height: 500px) {
     .book__add-media::before {
         display: none;
     }
