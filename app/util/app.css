@@ -21,7 +21,7 @@ body {
 }
 
 /* Header */
-.header {
+.header h1 {
     background-color: var(--primary-background);
     height: calc(7*var(--unit));
     display: flex;
@@ -35,7 +35,7 @@ body {
 
 .help-button {
     position: fixed;
-    top: calc(2 * var(--unit));
+    top: calc((7 + 2) * var(--unit));
     right: calc(2 * var(--unit));
 }
 

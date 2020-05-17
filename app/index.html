@@ -28,12 +28,10 @@
     <script defer type="module" src="app.js"></script>
   </head>
   <body>
-    <!-- THIS IS TEMPORARY -->
-    <!-- <a href="components.html">Storybook</a> -->
-    <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
-
     <header class="header">
+      <h1>
         Min Fotobog
+      </h1>
     </header>
 
     <!-- Help button -->
@@ -100,11 +98,14 @@
       <template id="pagination">
         <div class="pagination__inner">
           <button class="round-button round-button--small" id="prev-page">
-            <img src="assets/icons/primary/chevron-left.svg">
+            <img src="assets/icons/primary/chevron-left.svg" />
           </button>
           <span class="pagination__current" id="page-indicator"></span>
-          <button class="round-button round-button--small secondary" id="next-page">
-            <img>
+          <button
+            class="round-button round-button--small secondary"
+            id="next-page"
+          >
+            <img />
           </button>
         </div>
       </template>

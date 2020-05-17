@@ -5,9 +5,9 @@
 .book {
   /* Only for testing */
   display: flex;
-  height: calc(100vmin - 24 * var(--unit));
+  height: calc(100vmin - 31 * var(--unit));
   min-height: 100 * var(--unit);
-  width: calc(100vmin - 24 * var(--unit));
+  width: calc(100vmin - 31 * var(--unit));
   background-color: white;
   /* background-color: var(--secondary-background); */
   box-shadow: var(--shadow);
