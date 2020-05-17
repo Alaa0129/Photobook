@@ -3,7 +3,6 @@
  */
 
 .book {
-  /* Only for testing */
   display: flex;
   height: calc(100vmin - 31 * var(--unit));
   min-height: 100 * var(--unit);
@@ -11,9 +10,10 @@
   background-color: white;
   box-shadow: var(--shadow);
   padding: calc(0.05 * (100vmin - 31 * var(--unit)));
-  margin: calc(4 * var(--unit));
+  margin: calc(var(--unit));
   
-  justify-content: center;
+  /* align-items: center; */
+  justify-content: safe;
   flex-direction: column;
 }
 
@@ -23,7 +23,6 @@
 }
 
 .book__page {
-  /* padding: var(--unit); */
   flex-grow: 1;
   background-color: hsla(0, 0%, 0%, 0.2);
   box-shadow: var(--shadow);
@@ -34,7 +33,9 @@
 }
 
 .book__title {
-  font-size: calc(0.05 * (100vmin - 31 * var(--unit)));
+  font-size: calc(0.03 * (100vmin - 31 * var(--unit)));
+  white-space: pre-wrap;
+  word-break: break-all;
   margin: calc(0.05 * (100vmin - 31 * var(--unit)));
 }
 
