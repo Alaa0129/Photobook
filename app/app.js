@@ -1,3 +1,6 @@
+/* Author: Jonas Glerup Røssum */
+/* Author: Frederik Søgren Blunck Raisa */
+
 import themeDialog from "./modules/theme-dialog.mjs";
 import layoutDialog from "./modules/layout-dialog.mjs";
 import storage from "./modules/storage.mjs";

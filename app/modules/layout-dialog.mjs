@@ -1,5 +1,4 @@
 /**
- * layouts
  * Author: Jonas Glerup Røssum
  */
 
