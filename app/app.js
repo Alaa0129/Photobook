@@ -88,7 +88,7 @@ bookElement.addEventListener("keydown", (e) => {
 function setPageTitle(e) {
   storage.setState((stateDraft) => {
     let value = e.target.textContent.trim()
-    if (value.length === 0) value = "Klik her for at tilføje tekst"
+    if (value.length === 0) value = "Klik for at tilføje tekst"
     if (value.length > 27) value = value.slice(0, 27)
     stateDraft.pages[
       pages.getSelectedPageIndex()

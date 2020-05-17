@@ -64,7 +64,7 @@
   margin: var(--unit);
 }
 .book__add-media::before {
-  content: "Klik her for at vælge et billede";
+  content: "Klik for at vælge et billede";
   font-family: var(--font-family);
   line-height: 150%;
   text-align: center;

@@ -30,7 +30,7 @@ const createDefaultPage = () => ({
   image_url: null,
   content: {
     title: {
-      text: "Titel",
+      text: "Klik for at tilføje tekst",
       styles: {},
       extras: {},
     },
