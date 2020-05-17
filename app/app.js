@@ -24,7 +24,6 @@ storage.subscribe(() => {
   const pageElement = layout.createElement(page.layout, {
     ".book__title|textContent": page.content.title.text,
     ".book__title|onblur": (e) => {
-      console.log(e)
       switch (e.target.className) {
         case "book__title":
           {

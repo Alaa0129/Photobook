@@ -70,12 +70,8 @@ function delPage(pageNumber = null) {
 
 function getPage(pageNumber = null) {
   let state = storageRef.getState();
-
-  console.log(state);
-
+  
   if (pageNumber !== null) {
-    console.log("get page");
-    console.log(state.pages[pageNumber]);
     return state.pages[pageNumber];
   }
   return state.pages;
@@ -105,94 +101,5 @@ const defaultState = {
   selectedTheme: null,
   pages: [
     createDefaultPage()
-    // {
-    //   layout: "layout-one",
-    //   type: "image",
-    //   image_url: null,
-    //   content: {
-    //     title: {
-    //       text: "Titel",
-    //       styles: {},
-    //       extras: {},
-    //     },
-    //     caption: {
-    //       text: "Caption",
-    //       styles: {},
-    //       extras: {},
-    //     },
-    //   },
-    // }
-    // ,
-    // {
-    //   layout: "layout-one",
-    //   type: "image",
-    //   image_url: null,
-    //   content: {
-    //     title: {
-    //       text: "Titel to",
-    //       styles: {},
-    //       extras: {},
-    //     },
-    //     caption: {
-    //       text: "Caption",
-    //       styles: {},
-    //       extras: {},
-    //     },
-    //   },
-    // },
-    // {
-    //   layout: "layout-two",
-    //   type: "image",
-    //   image_url: null,
-    //   content: {
-    //     title: {
-    //       text: "Titel 2",
-    //       styles: {},
-    //       extras: {},
-    //     },
-    //     caption: {
-    //       text: "Caption",
-    //       styles: {},
-    //       extras: {},
-    //     },
-    //   },
-    // },
-  ],
-};
-
-const oldState = {
-  title: "Min fotobog",
-  pages: [
-    {
-      image_url: "imgur URL",
-      content: [
-        {
-          type: "title",
-          text: "Min titel",
-          styles: {},
-          extras: {},
-        },
-      ],
-    },
-    {
-      image_url: "imgur URL",
-      content: [
-        {
-          type: "title",
-          text: "Min titel",
-          styles: {},
-          extras: {},
-        },
-        {
-          type: "caption",
-          text: "Min billedtekst",
-          styles: {
-            color: "red",
-            fontSize: "18px",
-          },
-          extras: {},
-        },
-      ],
-    },
   ],
 };
