@@ -1,8 +1,10 @@
 /**
  * Pages
- * Author: Frederik Raisa
  */
 
+/* Author: Frederik Søgren Blunck Raisa */
+/* Author: Jonas Glerup Røssum */
+ 
 /* Init */
 let storageRef;
 

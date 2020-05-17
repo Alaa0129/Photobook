@@ -1,7 +1,10 @@
 /**
  * Storage
- * Author: Frederik Søgren Blunck Raisa
  */
+
+/* Author: Frederik Søgren Blunck Raisa */
+/* Author: Jonas Glerup Røssum */
+
 export default {
   setState,
   getState,
