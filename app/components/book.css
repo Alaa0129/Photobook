@@ -5,13 +5,25 @@
 .book {
   /* Only for testing */
   display: flex;
-  /* background-color: var(--secondary-background); */
+  height: calc(100vmin - 24 * var(--unit));
+  min-height: 100 * var(--unit);
+  width: calc(100vmin - 24 * var(--unit));
+  background-color: var(--secondary-background);
+  box-shadow: var(--shadow);
+  padding: calc(4 * var(--unit));
+  margin: calc(4 * var(--unit));
+  
   justify-content: center;
   flex-direction: column;
 }
 
+.book .root {
+  display: flex;
+  flex-grow: 1;
+}
+
 .book__page {
-  padding: var(--unit);
+  /* padding: var(--unit); */
   flex-grow: 1;
   background-color: var(--secondary-background);
   box-shadow: var(--shadow);
@@ -21,7 +33,20 @@
   align-items: center;
 }
 
+.book__title {
+  margin: calc(4 * var(--unit));
+}
+
+.book__media {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .book__add-media {
+  flex-grow: 1;
+  margin: calc(4 * var(--unit));
   border: calc(var(--unit) / 4) dashed var(--secondary-text);
   box-sizing: border-box;
   border-radius: calc(2 * var(--unit));
@@ -32,11 +57,6 @@
   align-items: center;
   cursor: pointer;
 }
-.book__add-media:not(:empty) {
-  /* display: none; */
-}
-
-.book__add-media
 
 .book__add-media::before,
 .book__add-media::after {
@@ -44,6 +64,7 @@
 }
 .book__add-media::before {
   content: "Klik her for at vælge et billede";
+  font-family: var(--font-family);
   line-height: 150%;
   text-align: center;
   text-transform: uppercase;
@@ -62,8 +83,9 @@
   display: none;
 }
 
-.book__media {
+.book__media img {
   object-fit: contain;
   width: 100%;
-  height: auto;
+  /* height: auto; */
+  flex-grow: 1;
 }

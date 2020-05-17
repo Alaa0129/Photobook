@@ -1,6 +1,7 @@
 /**
  * Themes overlay css
  * Author: Alaa Abdul-Al
+ * Author: Jonas Glerup Røssum
  */
 
  @keyframes tilt-in {
@@ -14,34 +15,47 @@
     }
   }
 
-#theme-overlay {
+.theme-overlay {
+    position: relative;
+    width: calc(24 * var(--unit));
     box-sizing: content-box;
     padding: calc(2 * var(--unit)) calc(2 * var(--unit));
     border-radius: calc(2*var(--unit));
-    border: none !important;
+    box-shadow: var(--shadow);
+    border: none;
     justify-content: center;
     align-self: flex-end;
     animation-name: tilt-in;
     animation-duration: 0.25s;
 }
 
-#theme-close-button-overlay {
-    position: relative;
-    margin-top: -35px;
-    margin-left: 280px;
+.theme-overlay h2 {
+    white-space: nowrap;
+    margin-right: calc(2 * var(--unit));
 }
 
-.theme-select-overlay {
-    margin-top: calc(2*var(--unit));
+.theme-overlay__header {
+    display: flex;
 }
-  
-.theme-overlay-button__choose {
-    width: calc(7 * var(--unit));
-    height: calc(4 * var(--unit));    
+
+.theme-overlay__close-button {
+    position: relative;
+    /* margin-top: -35px; */
+    /* margin-left: 280px; */
+}
+
+.theme-overlay__select {
+    margin-top: calc(2*var(--unit));
+    flex-grow: 1;
     border-radius: calc(2*var(--unit));
-    color: black;
+    padding: calc(var(--unit));
+    color: var(--secondary-text);
     font-weight: bold;
     position: relative;
-    margin-top: 40px;
-    float: right;
+}
+
+
+.theme-overlay__select:focus {
+    outline: none;
+    box-shadow: var(--shadow-focus);
 }
