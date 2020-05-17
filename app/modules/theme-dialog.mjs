@@ -3,7 +3,6 @@
  */
 
 /** 
- * Author: Alaa Abdul-Al 
  * Author: Jonas Glerup Røssum 
  */
 
