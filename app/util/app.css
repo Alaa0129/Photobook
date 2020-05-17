@@ -22,8 +22,17 @@ body {
 
 /* Header */
 .header {
-
+    background-color: var(--primary-background);
+    height: calc(7*var(--unit));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    font-size: xx-large;
+    font-weight: bold;
+    color: var(--primary-text);
 }
+
 .help-button {
     position: fixed;
     top: calc(2 * var(--unit));
