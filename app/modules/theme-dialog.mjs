@@ -26,7 +26,7 @@ storage.subscribe(state => {
 async function init() {
   const themeButton = document.getElementById("theme-button");
   const themeDialog = document.getElementById("theme-dialog");
-  const closeButton = document.getElementById("theme-overlay__close-button");
+  const closeButton = document.getElementById("theme-dialog__close-button");
   const dialogBackdrop = document.getElementById('dialog-backdrop')
   select = document.createElement("select");
   const result = await fetch(themeAPI).then((r) => r.json());
@@ -55,7 +55,7 @@ async function init() {
     })
   })
   
-  themeButton.addEventListener("click", async () => {
+  themeButton.addEventListener("click", () => {
     if (themeDialog.open) return;
     themeDialog.open = true;
     document.body.classList.add('backdrop-active')

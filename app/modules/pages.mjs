@@ -16,8 +16,8 @@ export default (storage) => ({
   getPageCount,
   setPage,
   delPage,
-  getCurrentPageIndex,
-  setCurrentPageIndex,
+  getSelectedPageIndex,
+  setselectedPageIndex,
 });
 
 /**
@@ -66,13 +66,13 @@ function getPageCount() {
   return storageRef.getState().pages.length;
 }
 
-function getCurrentPageIndex() {
-  return storageRef.getState().currentPageIndex;
+function getSelectedPageIndex() {
+  return storageRef.getState().selectedPageIndex;
 }
 
-function setCurrentPageIndex(index) {
+function setselectedPageIndex(index) {
   storageRef.setState((stateDraft) => {
-    stateDraft.currentPageIndex = index;
+    stateDraft.selectedPageIndex = index;
     return stateDraft;
   });
 }
@@ -80,7 +80,7 @@ function setCurrentPageIndex(index) {
 /* default value */
 const defaultState = {
   title: "Fotobog",
-  currentPageIndex: 0,
+  selectedPageIndex: null,
   selectedTheme: null,
   pages: [
     {

@@ -1,16 +1,17 @@
-import theme from "./modules/theme-dialog.mjs";
+import themeDialog from "./modules/theme-dialog.mjs";
+import layoutDialog from "./modules/layout-dialog.mjs";
 import storage from "./modules/storage.mjs";
 import Pages from "./modules/pages.mjs";
 import Layout from "./modules/layout.mjs";
 
-theme.init();
 
 const pages = Pages(storage);
 const layout = Layout();
 const bookElement = document.getElementById("book");
 
 storage.subscribe(() => {
-  const page = pages.getPage(pages.getCurrentPageIndex());
+  if (pages.getSelectedPageIndex() === null) return
+  const page = pages.getPage(pages.getSelectedPageIndex());
   const pageElement = layout.createElement(page.layout, {
     ".book__title textContent": page.content.title.text,
     ...page.image_url && {"img src": page.image_url},
@@ -21,7 +22,7 @@ storage.subscribe(() => {
   pagination.innerHTML = ''
   const paginationContent = layout.createElement("pagination", {
     ".pagination__current textContent": `Side ${
-      pages.getCurrentPageIndex() + 1
+      pages.getSelectedPageIndex() + 1
     } / ${pages.getPageCount()}`,
     "button:first-of-type onclick": () => gotoPage(-1),
     "button:last-of-type onclick": () => gotoPage(1)
@@ -33,6 +34,8 @@ storage.subscribe(() => {
 });
 
 pages.init();
+themeDialog.init();
+layoutDialog.init();
 
 // Event Delegator
 bookElement.addEventListener("input", (e) => {
@@ -57,7 +60,7 @@ bookElement.addEventListener("keydown", (e) => {
 
 function setPageTitle(e) {
   storage.setState((stateDraft) => {
-    stateDraft.pages[pages.getCurrentPageIndex()].content.title.text = e.target.textContent.trim();
+    stateDraft.pages[pages.getSelectedPageIndex()].content.title.text = e.target.textContent.trim();
     return stateDraft;
   });
 }
@@ -67,7 +70,7 @@ function fileUpload(ev) {
 
   reader.onload = () => {
     storage.setState((stateDraft) => {
-      stateDraft.pages[pages.getCurrentPageIndex()].image_url = reader.result;
+      stateDraft.pages[pages.getSelectedPageIndex()].image_url = reader.result;
       return stateDraft;
     });
   };
@@ -77,10 +80,10 @@ function fileUpload(ev) {
 
 // Paging
 function gotoPage(direction) {
-  const currentPageIndex = pages.getCurrentPageIndex();
-  if (currentPageIndex + direction < 0) return;
+  const selectedPageIndex = pages.getSelectedPageIndex();
+  if (selectedPageIndex + direction < 0) return;
   // TODO: Add support for creating new pages
-  if (currentPageIndex + direction >= pages.getPageCount()) return;
+  if (selectedPageIndex + direction >= pages.getPageCount()) return;
 
-  pages.setCurrentPageIndex(pages.getCurrentPageIndex() + direction);
+  pages.setselectedPageIndex(pages.getSelectedPageIndex() + direction);
 }

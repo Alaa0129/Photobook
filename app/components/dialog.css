@@ -17,7 +17,7 @@
 
 .dialog {
     position: relative;
-    width: calc(24 * var(--unit));
+    width: calc(30 * var(--unit));
     box-sizing: content-box;
     padding: calc(2 * var(--unit)) calc(2 * var(--unit));
     border-radius: calc(2*var(--unit));
@@ -36,6 +36,7 @@
 
 .dialog__header {
     display: flex;
+    justify-content: space-between;
 }
 
 .dialog__close-button {

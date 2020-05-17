@@ -45,7 +45,7 @@
       <!-- Bottom navigation -->
       <nav class="navigation">
         <div class="navigation__inner">
-          <button class="navigation__button">
+          <button class="navigation__button" id="layout-button">
             <img
               src="assets/icons/primary/arrange-send-to-back.svg"
               class="navigation__button__icon"
@@ -65,12 +65,24 @@
 
     <div class="dialog-backdrop" id="dialog-backdrop">
       <!-- Dialogs -->
-      <dialog id="theme-dialog" class="dialog">
+      <dialog class="dialog" id="theme-dialog">
         <div class="dialog__header">
           <h2 class="dialog__header__title">Vælg tema</h2>
           <button
-            class="round-button round-button--small round-button--transparent theme-overlay__close-button"
-            id="theme-overlay__close-button"
+            class="round-button round-button--small round-button--transparent theme-dialog__close-button"
+            id="theme-dialog__close-button"
+          >
+            <img src="assets/icons/secondary/close.svg" class="round__icon" />
+          </button>
+        </div>
+      </dialog>
+
+      <dialog class="dialog" id="layout-dialog">
+        <div class="dialog__header">
+          <h2 class="dialog__header__title">Vælg layout</h2>
+          <button
+            class="round-button round-button--small round-button--transparent layout-dialog__close-button"
+            id="layout-dialog__close-button"
           >
             <img src="assets/icons/secondary/close.svg" class="round__icon" />
           </button>
