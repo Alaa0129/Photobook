@@ -25,7 +25,7 @@ storage.subscribe(state => {
 
 async function init() {
   const themeButton = document.getElementById("theme-button");
-  const themeDialog = document.getElementById("theme-overlay");
+  const themeDialog = document.getElementById("theme-dialog");
   const closeButton = document.getElementById("theme-overlay__close-button");
   const dialogBackdrop = document.getElementById('dialog-backdrop')
   select = document.createElement("select");
@@ -36,7 +36,7 @@ async function init() {
     themes[id] = theme;
     const el = document.createElement("option");
     el.textContent = name;
-    select.className = "theme-overlay__select";
+    select.className = "dialog__select";
     el.value = id;
     if (storage.getState().selectedTheme === id) el.selected = true
 

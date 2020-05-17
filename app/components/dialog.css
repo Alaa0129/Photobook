@@ -15,7 +15,7 @@
     }
   }
 
-.theme-overlay {
+.dialog {
     position: relative;
     width: calc(24 * var(--unit));
     box-sizing: content-box;
@@ -29,22 +29,22 @@
     animation-duration: 0.25s;
 }
 
-.theme-overlay h2 {
+.dialog h2 {
     white-space: nowrap;
     margin-right: calc(2 * var(--unit));
 }
 
-.theme-overlay__header {
+.dialog__header {
     display: flex;
 }
 
-.theme-overlay__close-button {
+.dialog__close-button {
     position: relative;
     /* margin-top: -35px; */
     /* margin-left: 280px; */
 }
 
-.theme-overlay__select {
+.dialog__select {
     margin-top: calc(2*var(--unit));
     flex-grow: 1;
     border-radius: calc(2*var(--unit));
@@ -55,7 +55,7 @@
 }
 
 
-.theme-overlay__select:focus {
+.dialog__select:focus {
     outline: none;
     box-shadow: var(--shadow-focus);
 }

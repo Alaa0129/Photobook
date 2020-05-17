@@ -1,4 +1,4 @@
-import theme from "./modules/theme-overlay.mjs";
+import theme from "./modules/theme-dialog.mjs";
 import storage from "./modules/storage.mjs";
 import Pages from "./modules/pages.mjs";
 import Layout from "./modules/layout.mjs";
