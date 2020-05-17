@@ -50,6 +50,8 @@ body {
 
 .wrapper {
     max-height: 100vmin;
+    min-height: 500px;
+    overflow-y: auto;
 }
 
 .dialog-backdrop {

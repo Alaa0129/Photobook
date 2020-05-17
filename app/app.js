@@ -89,11 +89,13 @@ bookElement.addEventListener("keydown", (e) => {
   }
 });
 
+const charLimit = 120
+
 function setPageTitle(e) {
   storage.setState((stateDraft) => {
     let value = e.target.textContent.trim()
     if (value.length === 0) value = "Klik for at tilføje tekst"
-    if (value.length > 17) value = value.slice(0, 17)
+    if (value.length > charLimit) value = value.slice(0, charLimit)
     stateDraft.pages[
       pages.getSelectedPageIndex()
     ].content.title.text = value;
