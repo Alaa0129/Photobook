@@ -24,7 +24,7 @@ export default (storage) => ({
  * API
  */
 
-const defaultPage = {
+const createDefaultPage = () => ({
   layout: "layout-one",
   type: "image",
   image_url: null,
@@ -40,9 +40,9 @@ const defaultPage = {
       extras: {},
     },
   },
-}
+})
 
-function addPage(page = defaultPage) {
+function addPage(page = createDefaultPage()) {
   let state = storageRef.getState();
 
   state.pages.push(page);
@@ -104,7 +104,7 @@ const defaultState = {
   selectedPageIndex: null,
   selectedTheme: null,
   pages: [
-    defaultPage
+    createDefaultPage()
     // {
     //   layout: "layout-one",
     //   type: "image",
