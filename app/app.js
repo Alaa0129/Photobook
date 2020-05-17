@@ -74,6 +74,18 @@ bookElement.addEventListener("keydown", (e) => {
   }
 });
 
+bookElement.addEventListener("blur", (e) => {
+  switch (e.target.className) {
+    case "book__title":
+      {
+        setPageTitle(e);
+      }
+      break;
+    default:
+      break;
+  }
+});
+
 function setPageTitle(e) {
   storage.setState((stateDraft) => {
     stateDraft.pages[
