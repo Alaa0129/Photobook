@@ -10,7 +10,6 @@
 /* Icon font */
 @import 'util/reset.css';
 @import 'util/vars.css';
-@import 'util/style.css';
 
 /* Components */
 @import 'components/typography.css';
