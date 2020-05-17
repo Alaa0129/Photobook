@@ -1,3 +1,6 @@
+/* Author: Frederik Søgren Blunck Raisa */
+/* Author: Jonas Glerup Røssum */
+
 export default function init() {
   return {
     createElement
